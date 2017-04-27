@@ -57,21 +57,21 @@ class AddressBookServiceSpec extends WordSpec with Matchers {
       }
     }
 
-    "compares to persons age and says Sarah is older than Paul" when {
+    "compares two persons age and says Sarah is older than Paul" when {
       "a valid file is passed" in {
         val x = addressBookService.compareAge("Paul", "Sarah", "AddressTestFile.txt")
         x should be ("Sarah is 1578 days older than Paul")
       }
     }
 
-    "compares to persons age and says Paul is older than Sarah" when {
+    "compares two persons age and says Paul is older than Sarah" when {
       "a valid file is passed" in {
         val x = addressBookService.compareAge("Sarah", "Paul", "AddressTestFile.txt")
         x should be ("Sarah is 1578 days older than Paul")
       }
     }
 
-    "compares to persons age and says they are of same age" when {
+    "compares two persons age and says they are of same age" when {
       "a valid file is passed" in {
         val x = addressBookService.compareAge("Wes", "Gemma", "AddressTestFile.txt")
         x should be ("Gemma and Wes are of same age")
