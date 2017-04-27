@@ -12,7 +12,9 @@ object FileUtils {
     try {
       Some(srcFile.getLines.toList)
     } catch {
-      case ex: Exception => throw new RuntimeException(s"File $file not found:: ${ex.getMessage}")
+      // $COVERAGE-OFF$
+      case ex: Exception => throw new Exception(s"File $file not found")
+      // $COVERAGE-ON$
     } finally {
       srcFile.close()
     }

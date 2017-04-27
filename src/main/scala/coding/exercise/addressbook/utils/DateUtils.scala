@@ -16,8 +16,8 @@ object DateUtils {
     }
 
   }
-
+  // $COVERAGE-OFF$
   implicit def dateTimeOrdering: Ordering[DateTime] = Ordering.fromLessThan(_ isBefore _)
-
+  // $COVERAGE-ON$
 
 }
