@@ -23,6 +23,7 @@ object FileUtils {
   def convertFileToList(fileName: String, f: String => Option[List[String]]): List[String] = {
     Try(f(fileName)) match {
       case Success(Some(ls)) => ls
+      case Success(None) => Nil
       case Failure(ex) => Nil
     }
   }

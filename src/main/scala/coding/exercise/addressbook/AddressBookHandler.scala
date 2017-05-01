@@ -1,4 +1,6 @@
-package coding.exercise.addressbook.services
+package coding.exercise.addressbook
+
+import coding.exercise.addressbook.services.AddressBookService
 
 object AddressBookHandler extends App {
 

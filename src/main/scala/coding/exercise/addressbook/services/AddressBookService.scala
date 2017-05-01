@@ -11,6 +11,8 @@ class AddressBookService {
   def countByGender(fileName: String, gender: String) = convertFileToList(fileName, readFile) count (_.split(", ")(1).toUpperCase == gender)
 
   def oldestPerson(fileName: String) = {
+    def highestDob(ls: List[String]): DateTime = ls.map(x =>
+      convertToDate(x.split(", ")(2)).getOrElse(throw new RuntimeException("Incorrect date of birth format in text file"))).sorted.head
     val ls = convertFileToList(fileName, readFile)
     ls.filter(l => convertToDate(l.split(", ")(2)).getOrElse(throw new RuntimeException("Incorrect date of birth format in text file")) ==
       highestDob(ls)).headOption match {
@@ -30,8 +32,5 @@ class AddressBookService {
       case _ => s"$person2 and $person1 are of same age"
     }
   }
-
-  private def highestDob(ls: List[String]): DateTime = ls.map(x =>
-    convertToDate(x.split(", ")(2)).getOrElse(throw new RuntimeException("Incorrect date of birth format in text file"))).sorted.head
 
 }
